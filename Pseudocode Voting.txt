@@ -1,0 +1,41 @@
+START
+
+Input jumlahKandidat
+FOR tiap kandidat
+    Input namaKandidat
+    suara ← 0
+END FOR
+
+Input jumlahPemilih
+FOR tiap pemilih
+    Tampilkan daftar kandidat
+    Input pilihan
+    IF pilihan valid THEN
+        Tambah suara kandidat
+    ELSE
+        Tampilkan "Tidak Valid"
+    END IF
+END FOR
+
+skorTertinggi ← -1
+statusSeri ← FALSE
+
+FOR tiap kandidat
+    IF suara > skorTertinggi THEN
+        skorTertinggi ← suara
+        pemenang ← kandidat
+        statusSeri ← FALSE
+    ELSE IF suara = skorTertinggi THEN
+        statusSeri ← TRUE
+    END IF
+END FOR
+
+IF statusSeri THEN
+    Tampilkan "SERI"
+ELSE IF skorTertinggi ≤ 0 THEN
+    Tampilkan "Tidak Ada Pemenang"
+ELSE
+    Tampilkan pemenang
+END IF
+
+END
